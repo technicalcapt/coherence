@@ -23,7 +23,7 @@ defmodule Coherence.Invitation do
   def changeset(model, params \\ %{}) do
     model
     |> cast(params, ~w(first_name last_name email token))
-    |> validate_required([:name, :email])
+    |> validate_required([:first_name, :last_name, :email])
     |> unique_constraint(:email)
     |> validate_format(:email, ~r/@/)
   end
