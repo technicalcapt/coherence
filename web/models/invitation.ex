@@ -5,7 +5,8 @@ defmodule Coherence.Invitation do
   use Coherence.Web, :model
 
   schema "invitations" do
-    field :name, :string
+    field :first_name, :string
+    field :last_name, :string
     field :email, :string
     field :token, :string
 
@@ -21,7 +22,7 @@ defmodule Coherence.Invitation do
   @spec changeset(Ecto.Schema.t, Map.t) :: Ecto.Changeset.t
   def changeset(model, params \\ %{}) do
     model
-    |> cast(params, ~w(name email token))
+    |> cast(params, ~w(first_name last_name email token))
     |> validate_required([:name, :email])
     |> unique_constraint(:email)
     |> validate_format(:email, ~r/@/)
