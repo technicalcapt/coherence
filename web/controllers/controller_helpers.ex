@@ -48,7 +48,7 @@ defmodule Coherence.ControllerHelpers do
   """
   @spec router_helpers() :: module
   def router_helpers do
-    Module.concat(Config.module, Router.Helpers)
+    Module.concat(Config.module, Web.Router.Helpers)
   end
 
   @doc """
