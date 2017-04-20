@@ -100,7 +100,7 @@ defmodule Coherence.InvitationController do
       invite ->
         user_schema = Config.user_schema
         cs = Helpers.changeset(:invitation, user_schema, user_schema.__struct__,
-          %{email: invite.email, name: invite.name})
+          %{email: invite.email, first_name: invite.first_name, last_name: invite.last_name})
         conn
         |> render(:edit, changeset: cs, token: invite.token)
     end
